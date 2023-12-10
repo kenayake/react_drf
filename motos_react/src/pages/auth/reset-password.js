@@ -31,7 +31,7 @@ export default function ResetPassword() {
                                                 <Card className="login-page border-0" style={{ zIndex: 1 }}>
                                                     <CardBody className="p-0">
                                                         <h4 className="card-title">Recover Account</h4>
-                                                        <form className="login-form mt-4">
+                                                        <div className="login-form mt-4">
                                                             <Row>
                                                                 <Col lg={12}>
                                                                     <p className="text-muted">Please enter your email address. You will receive a link to create a new password via email.</p>
@@ -51,7 +51,7 @@ export default function ResetPassword() {
                                                                     <p className="mb-0 mt-3"><small className="text-dark me-2">Remember your password ?</small> <Link to="/auth-login" className="text-dark fw-bold">Sign in</Link></p>
                                                                 </div>
                                                             </Row>
-                                                        </form>
+                                                        </div>
                                                     </CardBody>
                                                 </Card>
                                             </div>

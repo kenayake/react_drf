@@ -1,17 +1,31 @@
 from django.shortcuts import render
 from .serializer import *
-from rest_framework import viewsets
+from rest_framework import viewsets,views
+from rest_framework.response import Response
 from .models import *
 from django.contrib.auth.models import User
+from rest_framework.parsers import JSONParser
 
+# Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-class ProdiViewSet(viewsets.ModelViewSet):
-    queryset = Prodi.objects.all()
-    serializer_class = ProdiSerializer
-class MahasiswaViewSet(viewsets.ModelViewSet):
-    queryset = Mahasiswa.objects.all()
-    serializer_class = MahasiswaSerializer
-
-# Create your views here.
+class NewsViewSet(viewsets.ModelViewSet):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
+class LoginAPIView(views.APIView):
+    parser_classes = [JSONParser]
+    def post(self, request):
+        email = request.data['email']
+        password = request.data['password']
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            user = None
+        if user is None:
+            return Response({"Error":"No user with that email exist"},status=404)
+        else:
+            if user.check_password(password):
+                return Response(UserSerializer(user, context={'request': request}).data,status=200)
+            else:
+                return Response({"Error":"Password is incorrect"},status=400)

@@ -1,5 +1,4 @@
 from django.contrib import admin
 from .models import *
-admin.site.register(Mahasiswa)
-admin.site.register(Prodi)
+admin.site.register(News)
 # Register your models here.

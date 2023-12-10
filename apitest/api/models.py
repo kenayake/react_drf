@@ -1,15 +1,12 @@
 from django.db import models
-class Prodi(models.Model):
-    prodi = models.CharField(max_length=200)
-    def __str__(self):
-        return self.prodi
-    
 
-class Mahasiswa(models.Model):
-    name = models.CharField(max_length=100)
-    nim = models.CharField(max_length=100)
-    prodi = models.ForeignKey(Prodi, on_delete=models.CASCADE)
+# Create your models here.
+from django.contrib.auth.models import User
+User._meta.get_field('email')._unique = True
+
+class News(models.Model):
+    tittle = models.CharField(max_length=100)
+    subtittle = models.CharField(max_length=100)
     image = models.ImageField(upload_to='photo/')
     def __str__(self):
-        return self.name
-# Create your models here.
+        return self.tittle

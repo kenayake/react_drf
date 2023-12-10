@@ -27,7 +27,7 @@ export default function NavbarPage() {
         ) {
             navbar.classList.add("nav-sticky");
         } else {
-            navbar.classList.remove("nav-sticky");
+            navbar?.classList?.remove("nav-sticky");
         }
     }
     const toggleMenu = () => {
