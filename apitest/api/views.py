@@ -4,7 +4,6 @@ from rest_framework import viewsets,views
 from rest_framework.response import Response
 from .models import *
 from django.contrib.auth.models import User
-from rest_framework.parsers import JSONParser
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
@@ -14,7 +13,6 @@ class NewsViewSet(viewsets.ModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
 class LoginAPIView(views.APIView):
-    parser_classes = [JSONParser]
     def post(self, request):
         email = request.data['email']
         password = request.data['password']
