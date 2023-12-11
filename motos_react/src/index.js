@@ -24,6 +24,7 @@ import Comingsoon from './pages/comingsoon';
 import Personal from './pages/personal';
 import Saas from './pages/saas';
 import Startup from './pages/startup';
+import New from './component/New';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -49,6 +50,7 @@ root.render(
       <Route path="/comingsoon" element={<Comingsoon />} />
       
       <Route path="/auth-reset-password" element={<ResetPassword />} />
+      <Route path='/news/:newsId' element={<New />} />
     </Routes>
   </BrowserRouter>
 );

@@ -73,7 +73,7 @@ export default function News() {
                                         <p className="text-muted mt-2 mb-0">The most well-known dummy text is the 'Lorem Ipsum', in the 16th century.</p>
 
                                         <div className="mt-3">
-                                            <Link to="#" className="link text-dark">Read More <i className="uil uil-arrow-right"></i></Link>
+                                            <Link to='news/gay' className="link text-dark">Read More <i className="uil uil-arrow-right"></i></Link>
                                         </div>
                                     </div>
                                 </CardBody>
