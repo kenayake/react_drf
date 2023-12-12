@@ -27,12 +27,13 @@ from django.conf import settings
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'news', NewsViewSet)
+router.register(r'login', LoginViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
-    path('login',LoginAPIView.as_view())
+    # path('login',LoginAPIView.as_view())
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 from django.conf import settings
 from django.conf.urls.static import static
